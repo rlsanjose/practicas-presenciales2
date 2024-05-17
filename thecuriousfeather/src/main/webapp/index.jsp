@@ -1,3 +1,12 @@
+<%@ page import="com.svalero.thecuriousfeather.dao.Database" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="com.svalero.thecuriousfeather.domain.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.svalero.thecuriousfeather.dao.ProductDao" %>
+<%@ page import="com.svalero.thecuriousfeather.domain.Shop" %>
+<%@ page import="com.svalero.thecuriousfeather.dao.ShopDao" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="es">
 <head>
