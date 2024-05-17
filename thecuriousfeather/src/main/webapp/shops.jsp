@@ -21,20 +21,17 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">The curious feather</a>
+        <a class="navbar-brand" href="index.jsp">The curious feather</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="index.jsp">Start</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="stationary.html">Stationary</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="shops.html">All shops</a>
+                    <a class="nav-link" href="shops.jsp">All shops</a>
                 </li>
             </ul>
         </div>
@@ -91,9 +88,8 @@
                     <p class="shop-hours">Opening Hours: <%=shop.getOpening_hours()%> </p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <a href="shop-detail.jsp?id=<%=shop.getShop_id()%>" class="btn btn-sm btn-outline-secondary">Ver</a>
-                            <a href="form-shop.jsp?id=<%=shop.getShop_id()%>" class="btn btn-sm btn-outline-secondary">Editar</a>
-                            <a href="remove-shop?id=<%= shop.getShop_id()%>" class="btn btn-sm btn-outline-secondary">Eliminar</a>
+                            <a href="shop-detail.jsp?id=<%=shop.getShop_id()%>" class="btn btn-sm btn-outline-secondary">View Details</a>
+                            <a href="remove-shop?id=<%= shop.getShop_id()%>" class="btn btn-sm btn-outline-secondary">Remove</a>
                         </div>
                     </div>
                 </div>
