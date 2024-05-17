@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.jsp">The curious feather</a>
@@ -28,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.jsp">Start</a>
+                    <a class="nav-link" href="management.jsp">Management</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="shops.jsp">All shops</a>
@@ -45,16 +46,38 @@
     </div>
 
     <h3>Page
-        <select name="pagina" id="pagina" class="form-select w-auto d-inline-block" onchange="(this.value)">
-            <script>
-                for (let i = 1; i <= 3; i++) {
-                    document.write(`<option value="${i}">${i}</option>`);
+        <div class="row">
+            <%
+                try {
+                    Database.connect();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            </script>
-        </select>
+
+                List<Product> productList = new ArrayList<>();
+                productList = Database.jdbi.withExtension(ProductDao.class, dao -> dao.getAllProducts());
+
+                for (Product product : productList) {
+
+            %>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="<%=product.getImage_url()%>" class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=product.getName()%></h5>
+                        <p class="card-text">Price: <%=product.getPrice()%></p>
+                        <a href="shop-detail.jsp?id=<%=product.getProduct_id()%>" class="btn btn-light">View details</a>
+                        <a href="remove-product?id=<%=product.getProduct_id()%>" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+            <%
+                }
+            %>
+        </div>
     </h3>
 
-    <div id="resultado"></div>
+    <div id="result"></div>
 </div>
 <script>
     $(document).ready(function(){

@@ -2,6 +2,8 @@
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="com.svalero.thecuriousfeather.dao.ShopDao" %>
 <%@ page import="com.svalero.thecuriousfeather.domain.Shop" %>
+<%@ page import="com.svalero.thecuriousfeather.dao.ProductDao" %>
+<%@ page import="com.svalero.thecuriousfeather.domain.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -13,8 +15,8 @@
         throw new RuntimeException();
     }
 
-    int shop_id = Integer.parseInt(request.getParameter("id"));
-    Shop shop = Database.jdbi.withExtension(ShopDao.class, dao -> dao.getShopById(shop_id));
+    int product_id = Integer.parseInt(request.getParameter("id"));
+    Product product = Database.jdbi.withExtension(ProductDao.class, dao -> dao.getProductById(product_id));
 
 %>
 
@@ -49,30 +51,30 @@
 </nav>
 
 <div class="container mt-4">
-    <h3 class="text-center mb-4">Shop Detail</h3>
+    <h3 class="text-center mb-4">Product Detail</h3>
 
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Shop Image">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Image">
                 <div class="card-body">
-                    <h5 class="card-title text-center"><%=shop.getCity()%></h5>
-                    <p class="card-text text-center"><%=shop.getAddress()%></p>
-                    <p class="card-text text-center"><%=shop.getOpening_hours()%></p>
-                    <a href="remove-shop?<%=shop.getShop_id()%>" class="btn btn-danger">Delete</a>
+                    <h5 class="card-title text-center"><%=product.getName()%></h5>
+                    <p class="card-text text-center"><%=product.getPrice()%></p>
+                    <p class="card-text text-center"><%=product.getStock()%></p>
+                    <a href="remove-product?<%=product.getProduct_id()%>" class="btn btn-danger">Delete</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script>
-    $(document).ready(function(){
-        $(".navbar-toggler").click(function(){
-            $("#navbarNav").toggleClass("show");
-        });
-    });
-</script>
+        <script>
+            $(document).ready(function(){
+                $(".navbar-toggler").click(function(){
+                    $("#navbarNav").toggleClass("show");
+                });
+            });
+        </script>
 </body>
 <footer class="bg-dark text-white text-center p-3 mt-4">
     <p>&copy; 2024 The curious feather. All rights reserved.</p>

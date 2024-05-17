@@ -1,28 +1,9 @@
-<%@ page import="com.svalero.thecuriousfeather.dao.Database" %>
-<%@ page import="java.sql.SQLException" %>
-<%@ page import="com.svalero.thecuriousfeather.dao.ShopDao" %>
-<%@ page import="com.svalero.thecuriousfeather.domain.Shop" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%
-    try {
-        Database.connect();
-    } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-    } catch (SQLException e) {
-        throw new RuntimeException();
-    }
-
-    int shop_id = Integer.parseInt(request.getParameter("id"));
-    Shop shop = Database.jdbi.withExtension(ShopDao.class, dao -> dao.getShopById(shop_id));
-
-%>
-
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The curious feather</title>
+    <title>Management - TCF</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -47,25 +28,33 @@
         </div>
     </div>
 </nav>
+<h2>Product Registration Form</h2>
+<form id="product-form" action="add-product" method="post">
+    <h3>Register product</h3>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" min="0" step="0.01" required><br>
+    <label for="stock">Stock:</label>
+    <input type="number" id="stock" name="stock" min="0" required><br>
+    <label for="image_url">Image URL:</label>
+    <input type="url" id="image_url" name="image_url" required><br>
+    <input type="submit" value="Register product">
+</form>
 
-<div class="container mt-4">
-    <h3 class="text-center mb-4">Shop Detail</h3>
+<h2>Shop Registration Form</h2>
 
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Shop Image">
-                <div class="card-body">
-                    <h5 class="card-title text-center"><%=shop.getCity()%></h5>
-                    <p class="card-text text-center"><%=shop.getAddress()%></p>
-                    <p class="card-text text-center"><%=shop.getOpening_hours()%></p>
-                    <a href="remove-shop?<%=shop.getShop_id()%>" class="btn btn-danger">Delete</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<!-- Shop registration form -->
+<form id="shop-form" action="add-shop" method="post">
+    <h3>Register Shop</h3>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required><br>
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required><br>
+    <label for="opening_hours">Opening Hours:</label>
+    <input type="text" id="opening_hours" name="opening_hours" required><br>
+    <input type="submit" value="Register Shop">
+</form>
 <script>
     $(document).ready(function(){
         $(".navbar-toggler").click(function(){
