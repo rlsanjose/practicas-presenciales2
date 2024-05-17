@@ -59,21 +59,38 @@
     </script>
 
 <div class="album py-5 bg-light">
-    <div class="container">
+    <div class="container" id="shops-container">
+        <!-- Aquí se insertarán las tarjetas de las tiendas -->
+    </div>
+</div>
 
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h2 class="shop-name">City Name</h2>
-                        <p class="shop-address">Address: 123 Main St</p>
-                        <p class="shop-hours">Opening Hours: Monday-Friday 10am-9pm</p>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const shopsData = [
+            { name: "City Name 1", address: "123 Main St", hours: "Monday-Friday 10am-9pm" },
+            { name: "City Name 2", address: "456 Elm St", hours: "Monday-Friday 9am-8pm" },
+            { name: "City Name 3", address: "789 Oak St", hours: "Monday-Friday 11am-10pm" },
+        ];
+    
+        const shopsContainer = document.getElementById("shops-container");
+    
+        // HTML
+        shopsData.forEach(shop => {
+            const shopHTML = `
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h2 class="shop-name">${shop.name}</h2>
+                            <p class="shop-address">Address: ${shop.address}</p>
+                            <p class="shop-hours">Opening Hours: ${shop.hours}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Repite esta estructura para cada tienda -->
-        </div>
-
+            `;
+            shopsContainer.insertAdjacentHTML("beforeend", shopHTML);
+        });
+    });
+</script>
     </div>
 </div>
 </body>
