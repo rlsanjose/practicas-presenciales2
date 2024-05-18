@@ -27,16 +27,11 @@ public class AddProduct extends HttpServlet {
             Database.connect();
             int affectedRows = Database.jdbi.withExtension(ProductDao.class,
                     dao -> dao.addProduct(name, price, stock, image_url));
-//            if (affectedRows == 1) {
-//                response.sendRedirect("form-product.jsp?registered=true");
-//            } else if (affectedRows == 0) {
-//                response.sendRedirect("form-product.jsp?registered=false");
+            response.sendRedirect("index.jsp");
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         } catch (ClassNotFoundException ex) {
             throw new RuntimeException(ex);
-//            response.sendRedirect("form-product.jsp?registered=false");
-
         }
     }
 }

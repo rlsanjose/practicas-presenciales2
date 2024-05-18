@@ -27,12 +27,7 @@ public class AddShop extends HttpServlet {
             int rowsAffected = 0;
             rowsAffected = Database.jdbi.withExtension(ShopDao.class,
                     dao -> dao.addShop(address, city, opening_hours));
-
-//            if (rowsAffected == 1) {
-//                response.sendRedirect("form-shop.jsp?registered=true");
-//            } else {
-//                response.sendRedirect("form-shop.jsp?registered=false");
-//            }
+            response.sendRedirect("shops.jsp");
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
