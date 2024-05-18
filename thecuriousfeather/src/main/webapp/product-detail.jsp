@@ -59,8 +59,8 @@
                 <img src="<%=product.getImage_url()%>" class="card-img-top" alt="Product Image">
                 <div class="card-body">
                     <h5 class="card-title text-center"><%=product.getName()%></h5>
-                    <p class="card-text text-center"><%=product.getPrice()%></p>
-                    <p class="card-text text-center"><%=product.getStock()%></p>
+                    <p class="card-text text-center">Price: <%=product.getPrice()%></p>
+                    <p class="card-text text-center">Stock: <%=product.getStock()%></p>
                     <a href="remove-product?id=<%=product.getProduct_id()%>" class="btn btn-danger">Delete</a>
                 </div>
             </div>
