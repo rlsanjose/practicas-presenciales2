@@ -66,7 +66,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><%=product.getName()%></h5>
                         <p class="card-text">Price: <%=product.getPrice()%></p>
-                        <a href="shop-detail.jsp?id=<%=product.getProduct_id()%>" class="btn btn-light">View details</a>
+                        <a href="product-detail.jsp?id=<%=product.getProduct_id()%>" class="btn btn-light">View details</a>
                         <a href="remove-product?id=<%=product.getProduct_id()%>" class="btn btn-danger">Delete</a>
                     </div>
                 </div>
