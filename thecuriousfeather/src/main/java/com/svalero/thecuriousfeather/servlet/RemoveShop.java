@@ -22,7 +22,7 @@ public class RemoveShop extends HttpServlet {
             Database.connect();
             Database.jdbi.withExtension(ShopDao.class, dao -> {
                 dao.removeShop(id);
-                resp.sendRedirect("index.jsp");
+                resp.sendRedirect("shops.jsp");
                 return null;
             });
         } catch (SQLException e) {
