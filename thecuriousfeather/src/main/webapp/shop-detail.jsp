@@ -54,7 +54,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Shop Image">
+                <img src="https://cdn-icons-png.flaticon.com/512/5609/5609501.png" class="card-img-top" alt="Shop Image">
                 <div class="card-body">
                     <h5 class="card-title text-center"><%=shop.getCity()%></h5>
                     <p class="card-text text-center"><%=shop.getAddress()%></p>
