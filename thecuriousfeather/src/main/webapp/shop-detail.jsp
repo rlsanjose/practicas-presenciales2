@@ -59,7 +59,7 @@
                     <h5 class="card-title text-center"><%=shop.getCity()%></h5>
                     <p class="card-text text-center"><%=shop.getAddress()%></p>
                     <p class="card-text text-center"><%=shop.getOpening_hours()%></p>
-                    <a href="remove-shop?<%=shop.getShop_id()%>" class="btn btn-danger">Delete</a>
+                    <a href="remove-shop?id=<%=shop.getShop_id()%>" class="btn btn-danger">Delete</a>
                 </div>
             </div>
         </div>
