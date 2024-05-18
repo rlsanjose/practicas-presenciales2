@@ -56,7 +56,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Image">
+                <img src="<%=product.getImage_url()%>" class="card-img-top" alt="Product Image">
                 <div class="card-body">
                     <h5 class="card-title text-center"><%=product.getName()%></h5>
                     <p class="card-text text-center"><%=product.getPrice()%></p>
