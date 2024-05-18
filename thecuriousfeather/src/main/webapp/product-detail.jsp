@@ -61,7 +61,7 @@
                     <h5 class="card-title text-center"><%=product.getName()%></h5>
                     <p class="card-text text-center"><%=product.getPrice()%></p>
                     <p class="card-text text-center"><%=product.getStock()%></p>
-                    <a href="remove-product?<%=product.getProduct_id()%>" class="btn btn-danger">Delete</a>
+                    <a href="remove-product?id=<%=product.getProduct_id()%>" class="btn btn-danger">Delete</a>
                 </div>
             </div>
         </div>
